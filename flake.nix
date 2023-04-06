@@ -1,7 +1,7 @@
 {
   inputs.nixpkgs.url = "/home/gaetan/perso/nix/nixpkgs";
   inputs.nixvim = {
-    url = "/home/gaetan/perso/nix/nixvim";
+    url = "/home/gaetan/perso/nix/nixvim/nixvim";
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -19,7 +19,16 @@
       {
         inherit pkgs;
         module = {
-          plugins.coq-nvim.enable = true;
+          plugins = {
+            lsp = {
+              enable = true;
+              servers = {
+                typst-lsp = {
+                  enable = true;
+                };
+              };
+            };
+          };
         };
       };
   in {
