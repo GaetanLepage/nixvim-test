@@ -25,12 +25,16 @@
       {
         # inherit pkgs;
         module = {
+          colorschemes.gruvbox.enable = true;
           plugins = {
-            lualine.enable = true;
+            # lualine.enable = true;
+            lspkind.enable = true;
             lsp = {
               enable = true;
               servers = {
-                omnisharp.enable = true;
+                pylsp.enable = true;
+                bashls.enable = true;
+                tsserver.enable = true;
               };
             };
           };
