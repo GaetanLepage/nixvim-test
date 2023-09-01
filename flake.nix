@@ -27,16 +27,6 @@
         module = {
           colorschemes.gruvbox.enable = true;
           plugins = {
-            # lualine.enable = true;
-            lspkind.enable = true;
-            lsp = {
-              enable = true;
-              servers = {
-                pylsp.enable = true;
-                bashls.enable = true;
-                tsserver.enable = true;
-              };
-            };
           };
         };
       };
