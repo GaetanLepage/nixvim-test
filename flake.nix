@@ -1,7 +1,7 @@
 {
   inputs = {
-    # nixpkgs.url = "/home/gaetan/perso/nix/nixpkgs";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "/home/gaetan/perso/nix/nixpkgs";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
     nixvim = {
       url = "/home/gaetan/perso/nix/nixvim/nixvim";
@@ -24,10 +24,19 @@
       nixvim'.makeNixvimWithModule
       {
         # inherit pkgs;
-        module = {
+        module = {helpers, ...}: {
           colorschemes.gruvbox.enable = true;
           plugins = {
+            indent-blankline.enable = true;
           };
+          keymaps = [
+            {
+              mode = "n";
+              key = "<C-a>";
+              action = "function() print('hello') end";
+              lua = true;
+            }
+          ];
         };
       };
   in {
@@ -36,6 +45,6 @@
       type = "app";
       program = "${nvim}/bin/nvim";
     };
-    # formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
+    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
   };
 }
