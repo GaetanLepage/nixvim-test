@@ -44,11 +44,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1692799911,
-        "narHash": "sha256-3eihraek4qL744EvQXsK1Ha6C3CR7nnT8X2qWap4RNk=",
+        "lastModified": 1694529238,
+        "narHash": "sha256-zsNZZGTGnMOf9YpHKJqMSsa0dXbfmxeoJ7xHlrt+xmY=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "f9e7cf818399d17d347f847525c5a5a8032e4e44",
+        "rev": "ff7b65b44d01cf9ba6a71320833626af21126384",
         "type": "github"
       },
       "original": {
@@ -99,18 +99,17 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1693471703,
-        "narHash": "sha256-0l03ZBL8P1P6z8MaSDS/MvuU8E75rVxe5eE1N6gxeTo=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "3e52e76b70d5508f3cec70b882a29199f4d1ee85",
-        "type": "github"
+        "lastModified": 1697962925,
+        "narHash": "sha256-JJ1zU97vfn44ajwb5mfyjwgPaXBKshtGoq1SQgajdhk=",
+        "ref": "refs/heads/timm",
+        "rev": "22b0608433a2455dda00aa64de570ea4df59b91a",
+        "revCount": 539668,
+        "type": "git",
+        "url": "file:///home/gaetan/perso/nix/nixpkgs"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
+        "type": "git",
+        "url": "file:///home/gaetan/perso/nix/nixpkgs"
       }
     },
     "nixpkgs-stable": {
@@ -139,11 +138,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1693552651,
-        "narHash": "sha256-U0PdjLxFtgK1a7leKgzqPeorhncO9xo+wmPJ/NK8fIg=",
-        "ref": "refs/heads/main",
-        "rev": "186b790febffd6d16c2ba6bbe55655ddbdeec894",
-        "revCount": 629,
+        "lastModified": 1697977716,
+        "narHash": "sha256-r2sb1asbSh5Oe0T39HFpSrRAZ7FBwy4oXQvitz97H4U=",
+        "ref": "refs/heads/example",
+        "rev": "f44ec1a3446f87fe778e203ec12fa7f4453a5e2b",
+        "revCount": 698,
         "type": "git",
         "url": "file:///home/gaetan/perso/nix/nixvim/nixvim"
       },
@@ -191,11 +190,11 @@
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1692274144,
-        "narHash": "sha256-BxTQuRUANQ81u8DJznQyPmRsg63t4Yc+0kcyq6OLz8s=",
+        "lastModified": 1697746376,
+        "narHash": "sha256-gu77VkgdfaHgNCVufeb6WP9oqFLjwK4jHcoPZmBVF3E=",
         "owner": "cachix",
         "repo": "pre-commit-hooks.nix",
-        "rev": "7e3517c03d46159fdbf8c0e5c97f82d5d4b0c8fa",
+        "rev": "8cc349bfd082da8782b989cad2158c9ad5bd70fd",
         "type": "github"
       },
       "original": {
