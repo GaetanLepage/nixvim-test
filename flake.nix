@@ -41,10 +41,6 @@
       };
   in {
     packages.${system}.default = nvim;
-    apps.${system}.default = {
-      type = "app";
-      program = "${nvim}/bin/nvim";
-    };
     formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
   };
 }
