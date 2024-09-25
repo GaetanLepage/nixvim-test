@@ -17,33 +17,50 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    nixvim,
-    flake-parts,
-    ...
-  } @ inputs:
-    flake-parts.lib.mkFlake {inherit inputs;} {
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixvim,
+      flake-parts,
+      ...
+    }@inputs:
+    flake-parts.lib.mkFlake { inherit inputs; } {
       systems = nixpkgs.lib.systems.flakeExposed;
 
-      perSystem = {
-        pkgs,
-        inputs',
-        ...
-      }: {
-        formatter = pkgs.alejandra;
-        packages = {
-          # inherit lsp-format-nvim;
-          default = inputs'.nixvim.legacyPackages.makeNixvimWithModule {
-            inherit pkgs;
-            module = {pkgs, ...}: {
-              plugins = {
-                preview.enable = true;
-              };
+      perSystem =
+        {
+          pkgs,
+          inputs',
+          ...
+        }:
+        {
+          formatter = pkgs.alejandra;
+          packages = {
+            # inherit lsp-format-nvim;
+            default = inputs'.nixvim.legacyPackages.makeNixvimWithModule {
+              inherit pkgs;
+              module =
+                { pkgs, ... }:
+                {
+                  plugins = {
+                    avante = {
+                      enable = true;
+                      settings = {
+                        openai = {
+                          endpoint = "https://api.openai.com/v1";
+                          model = "gpt-4o";
+                          timeout = 30000;
+                          temperature = 0;
+                          max_tokens = 4096;
+                          "__rawKey__'local'" = false;
+                        };
+                      };
+                    };
+                  };
+                };
             };
           };
         };
-      };
     };
 }
