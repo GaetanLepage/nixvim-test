@@ -44,17 +44,11 @@
                 { pkgs, ... }:
                 {
                   plugins = {
-                    avante = {
+                    lsp = {
                       enable = true;
-                      settings = {
-                        openai = {
-                          endpoint = "https://api.openai.com/v1";
-                          model = "gpt-4o";
-                          timeout = 30000;
-                          temperature = 0;
-                          max_tokens = 4096;
-                          "__rawKey__'local'" = false;
-                        };
+                      servers.hls = {
+                        enable = true;
+                        installGhc = false;
                       };
                     };
                   };
