@@ -6,8 +6,8 @@
     # nixpkgs.url = "github:nixos/nixpkgs";
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
     nixvim = {
-      url = "/home/gaetan/perso/nix/nixvim/nixvim";
-      # url = "github:nix-community/nixvim";
+      # url = "/home/gaetan/perso/nix/nixvim/nixvim";
+      url = "github:nix-community/nixvim";
       # url = "github:nix-community/nixvim/nixos-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -43,15 +43,10 @@
               module =
                 { pkgs, ... }:
                 {
-                  plugins = {
-                    lsp = {
-                      enable = true;
-                      servers.hls = {
-                        enable = true;
-                        installGhc = false;
-                      };
+                  colorschemes.nord.enable = true;
+                  plugins =
+                    {
                     };
-                  };
                 };
             };
           };
