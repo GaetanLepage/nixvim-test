@@ -4,11 +4,11 @@
     # nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs.url = "github:nixos/nixpkgs";
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixvim = {
-      # url = "/home/gaetan/perso/nix/nixvim/nixvim";
-      url = "github:nix-community/nixvim";
-      # url = "github:nix-community/nixvim/nixos-23.05";
+      url = "/home/gaetan/perso/nix/nixvim/nixvim";
+      # url = "github:nix-community/nixvim";
+      # url = "github:nix-community/nixvim/nixos-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-parts = {
@@ -43,10 +43,10 @@
               module =
                 { pkgs, ... }:
                 {
-                  colorschemes.nord.enable = true;
-                  plugins =
-                    {
-                    };
+                  luaLoader.enable = true;
+                  plugins = {
+                    oil.enable = true;
+                  };
                 };
             };
           };
