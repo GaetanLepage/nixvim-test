@@ -35,7 +35,6 @@
           ...
         }:
         {
-          formatter = pkgs.alejandra;
           packages = {
             # inherit lsp-format-nvim;
             default = inputs'.nixvim.legacyPackages.makeNixvimWithModule {
