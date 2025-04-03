@@ -1,15 +1,16 @@
 {
   inputs = {
     # nixpkgs.url = "/home/gaetan/perso/nix/nixpkgs";
-    # nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    # nixpkgs.url = "github:GaetanLepage/nixpkgs/neovim";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs.url = "github:nixos/nixpkgs";
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixvim = {
-      url = "/home/gaetan/perso/nix/nixvim/nixvim";
+      url = "/home/gaetan/nix/nixvim/nixvim";
       # url = "github:nix-community/nixvim";
       # url = "github:nix-community/nixvim/nixos-24.11";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -36,15 +37,16 @@
         }:
         {
           packages = {
-            # inherit lsp-format-nvim;
             default = inputs'.nixvim.legacyPackages.makeNixvimWithModule {
-              inherit pkgs;
+              # inherit pkgs;
               module =
                 { pkgs, ... }:
                 {
                   luaLoader.enable = true;
+                  # spellfiles.enable = true;
+                  colorschemes.nord.enable = true;
                   plugins = {
-                    oil.enable = true;
+                    image.enable = true;
                   };
                 };
             };
