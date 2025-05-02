@@ -2,13 +2,15 @@
   inputs = {
     # nixpkgs.url = "/home/gaetan/perso/nix/nixpkgs";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/master";
     # nixpkgs.url = "github:GaetanLepage/nixpkgs/neovim";
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs.url = "github:nixos/nixpkgs";
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixvim = {
-      url = "/home/gaetan/nix/nixvim/nixvim";
-      # url = "github:nix-community/nixvim";
+      # url = "/home/gaetan/nix/nixvim/nixvim";
+      url = "github:nix-community/nixvim";
+      # url = "github:GaetanLepage/nixvim/plugins-lsp";
       # url = "github:nix-community/nixvim/nixos-24.11";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -40,13 +42,31 @@
             default = inputs'.nixvim.legacyPackages.makeNixvimWithModule {
               # inherit pkgs;
               module =
-                { pkgs, ... }:
+                { pkgs, config, ... }:
                 {
                   luaLoader.enable = true;
                   # spellfiles.enable = true;
-                  colorschemes.nord.enable = true;
+                  # colorschemes.nord.enable = true;
+
+                  # extraConfigLuaPre = ''
+                  #   vim.lsp.inlay_hint.enable(true)
+                  # '';
                   plugins = {
-                    image.enable = true;
+                    peek = {
+                      enable = true;
+                      package = pkgs.vimPlugins.peek-nvim;
+                      settings = builtins.trace (toString config.plugins.peek.package) {
+                        app = "firefox";
+                      };
+                    };
+                    # lsp = {
+                    #   enable = true;
+                    #   servers.rust_analyzer = {
+                    #     enable = true;
+                    #     installCargo = true;
+                    #     installRustc = true;
+                    #   };
+                    # };
                   };
                 };
             };
