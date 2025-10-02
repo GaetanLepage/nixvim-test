@@ -8,8 +8,8 @@
     # nixpkgs.url = "github:nixos/nixpkgs";
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixvim = {
-      # url = "/home/gaetan/nix/nixvim/nixvim";
-      url = "github:nix-community/nixvim";
+      url = "/home/gaetan/nix/nixvim/nixvim";
+      # url = "github:nix-community/nixvim";
       # url = "github:GaetanLepage/nixvim/plugins-lsp";
       # url = "github:nix-community/nixvim/nixos-24.11";
       # inputs.nixpkgs.follows = "nixpkgs";
@@ -45,20 +45,23 @@
                 { pkgs, config, ... }:
                 {
                   luaLoader.enable = true;
+                  env.FOO = "bar";
                   # spellfiles.enable = true;
                   # colorschemes.nord.enable = true;
+
+                  # extraPlugins = with pkgs.vimPlugins; [
+                  #   yaml-companion-nvim
+                  # ];
 
                   # extraConfigLuaPre = ''
                   #   vim.lsp.inlay_hint.enable(true)
                   # '';
                   plugins = {
-                    peek = {
+                    lsp = {
                       enable = true;
-                      package = pkgs.vimPlugins.peek-nvim;
-                      settings = builtins.trace (toString config.plugins.peek.package) {
-                        app = "firefox";
-                      };
+                      # servers.yamlls.enable = true;
                     };
+                    # yaml-companion.enable = true;
                     # lsp = {
                     #   enable = true;
                     #   servers.rust_analyzer = {
